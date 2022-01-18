@@ -1,9 +1,9 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const mediaQueries = {
-  sm: "only screen and (max-width: 767px)",
-  md: "only screen and (min-width: 768px) and (max-width: 991px)",
-  lg: "only screen and (min-width: 992px)",
+  sm: 'only screen and (max-width: 767px)',
+  md: 'only screen and (min-width: 768px) and (max-width: 991px)',
+  lg: 'only screen and (min-width: 992px)',
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--high-contrast-text);
     line-height: normal;
     background: var(--body-background);
+    overflow: scroll;
     p{
       margin-bottom: 2rem;
       line-height: 1.5rem;
@@ -59,16 +60,5 @@ export const GlobalStyles = createGlobalStyle`
   }
   html, html a, h1, h2, h3, h4, h5, h6, a, p, li, dl, th, dt, input, textarea, span, div {
     -webkit-font-smoothing: antialiased;
-  }
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 50%, 0);
-    }
-
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
   }
 `;

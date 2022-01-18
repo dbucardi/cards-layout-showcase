@@ -1,19 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { GlobalStyles } from "./Layout/globalStyles";
-import { ResetStyles } from "./Layout/resetStyles";
-import { ThemeStyles } from "./theme";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { GlobalStyles } from './theme/globalStyles';
+import { ResetStyles } from './theme/resetStyles';
+import { ThemeStyles } from './theme/theme';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ThemeStyles />
     <ResetStyles />
     <GlobalStyles />
-    <ThemeStyles />
     <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

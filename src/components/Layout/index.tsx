@@ -1,8 +1,5 @@
-import {
-  StyledContainer as Container,
-  StyledMainContainer as MainContainer,
-} from "./styles";
-import { Logo } from "../components/Logo";
+import { StyledContainer as Container, StyledMainContainer as MainContainer } from './styles';
+import { Logo } from '../Logo';
 
 interface ILayoutProps {
   children: React.ReactNode;

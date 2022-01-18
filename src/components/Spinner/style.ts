@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledSpinnerContainer = styled.div`
   display: flex;
@@ -23,15 +23,15 @@ export const StyledSpinner = styled.div`
   height: 80px;
 
   &:after {
-    content: " ";
+    content: ' ';
     display: block;
     border-radius: 50%;
     width: 0;
     height: 0;
     margin: 8px;
     box-sizing: border-box;
-    border: 32px solid var(--primary);
-    border-color: var(--primary) transparent var(--primary) transparent;
+    border: 32px solid var(--high-contrast-text);
+    border-color: var(--high-contrast-text) transparent var(--high-contrast-text) transparent;
     animation: spinner-animation 1.2s infinite;
   }
 

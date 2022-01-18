@@ -1,24 +1,11 @@
-import { Col, Row } from "../../../components/GridSystem";
-import { Layout } from "../../../Layout";
-import { Spinner } from "../../../components/Spinner";
-import { useJokesState } from "../../../state/jokesState";
+import chuckNorrisImg from '../../../assets/images/chuck-norris-card2.jpg';
+import { JokesByCategory } from '../';
 
 export function JokesByCategoryHistoryPage() {
-  const { jokes, loading } = useJokesState("history");
-
   return (
-    <Layout>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <Row>
-          {jokes.map((joke) => (
-            <Col key={joke.id} sm={12} md={6} lg={4}>
-              <span>{joke.value}</span>
-            </Col>
-          ))}
-        </Row>
-      )}
-    </Layout>
+    <JokesByCategory
+      category="history"
+      headerImage={<img alt="Chuck Norris holding a gun in combat" src={chuckNorrisImg} />}
+    />
   );
 }

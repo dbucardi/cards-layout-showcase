@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { ICircleImageProps } from '.';
 
-export const StyledCircleImage = styled.div`
+export const StyledCircleImage = styled.div<ICircleImageProps>`
   img {
     display: block;
-    width: 128px;
-    height: 128px;
+    width: ${({ width }) => width}px;
+    height: ${({ height }) => height}px;
     margin: 0 auto 30px;
     border-radius: 50%;
-    background-color: #fff;
-    border: 5px solid #fff;
+    background-color: ${({ lineColor }) => lineColor};
+    border: 5px solid ${({ lineColor }) => lineColor};
     object-fit: cover;
   }
 `;

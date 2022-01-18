@@ -1,25 +1,11 @@
-import { Col, Row } from "../../../components/GridSystem";
-import { Layout } from "../../../Layout";
-import { Spinner } from "../../../components/Spinner";
-import { useJokesState } from "../../../state/jokesState";
-import { JokeCard } from "../../../components/JokeCard";
+import chuckNorrisImg from '../../../assets/images/chuck-norris-card1.jpg';
+import { JokesByCategory } from '../';
 
 export function JokesByCategoryDevPage() {
-  const { jokes, loading } = useJokesState("dev");
-
   return (
-    <Layout>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <Row>
-          {jokes.map((joke) => (
-            <Col key={joke.id} sm={12} md={6} lg={4}>
-              <JokeCard joke={joke.value} />
-            </Col>
-          ))}
-        </Row>
-      )}
-    </Layout>
+    <JokesByCategory
+      category="dev"
+      headerImage={<img alt="Chuck Norris wearing a polo shirt holding a mug" src={chuckNorrisImg} />}
+    />
   );
 }
