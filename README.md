@@ -1,3 +1,12 @@
+# About the application
+
+A joke is considered seen just when the user put the mouse over it for at least 1 second.
+
+The next steps should be:
+
+- Write unit tests for pages and components;
+- Improve the code reusability for jokesByCategory pages;
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
