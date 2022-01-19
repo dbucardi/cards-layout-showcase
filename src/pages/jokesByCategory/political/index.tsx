@@ -18,7 +18,7 @@ const headerImage = (
 const category = 'history';
 
 export function JokesByCategoryPoliticalPage() {
-  const { jokes, seenJokes, loading, setSeenJokes } = useJokesState(category);
+  const { jokes, seenJokes, loading, error, setSeenJokes } = useJokesState(category);
 
   const handleJokeSeen = (seenJoke: IJoke) => () => {
     const newSeenJokes = saveSeenJoke(seenJoke);
@@ -68,6 +68,7 @@ export function JokesByCategoryPoliticalPage() {
           </CircleImage>
           {renderRandomJokesSection()}
           {seenJokes.length > 0 ? renderSeenJokesSection() : <></>}
+          {error ? 'Ops, somenthing went wrong with our application, try to refresh the page.' : <></>}
         </>
       )}
     </Layout>

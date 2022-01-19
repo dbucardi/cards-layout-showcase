@@ -8,7 +8,7 @@ export function HomePage() {
   return (
     <Layout>
       <section>
-        <h1>Welcome! Choose your jokes card!</h1>
+        <h1>Welcome! Choose your card!</h1>
         <Row>
           {categoriesData?.map((cardProps, index) => (
             <Col key={cardProps.category} sm={100} md={50} lg={33}>

@@ -6,6 +6,7 @@ export const useJokesState = (jokeCategory: string) => {
   const [jokes, setJokes] = useState<IJoke[]>([]);
   const [loading, setLoading] = useState(false);
   const [seenJokes, setSeenJokes] = useState<IJoke[]>([]);
+  const [error, setError] = useState(false);
 
   useLayoutEffect(() => {
     setLoading(true);
@@ -13,6 +14,7 @@ export const useJokesState = (jokeCategory: string) => {
       .then((categoriesData) => {
         setJokes(categoriesData);
       })
+      .catch(() => setError(true))
       .finally(() => {
         setLoading(false);
       });
@@ -20,5 +22,5 @@ export const useJokesState = (jokeCategory: string) => {
     setSeenJokes(getSeenJokes());
   }, [jokeCategory]);
 
-  return { jokes, seenJokes, loading, setSeenJokes };
+  return { jokes, seenJokes, loading, error, setSeenJokes };
 };
