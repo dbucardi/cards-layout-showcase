@@ -1,6 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IColProps } from './interfaces';
 import { mediaQueries } from '../../theme/globalStyles';
+
+export const aligmentCss = css`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const StyledRow = styled.div`
   display: flex;
@@ -14,6 +19,9 @@ export const StyledCol = styled.div<IColProps>`
   flex-grow: 0;
   flex-shrink: 1;
   padding: 15px;
+  ${(props) => (props.align ? aligmentCss : '')}
+  align-items: ${({ align = 'initial' }) => align};
+  justify-content: ${({ align = 'initial' }) => align};
   @media ${mediaQueries.sm} {
     flex-basis: ${(props) => props.sm}%;
     min-width: ${(props) => props.sm}%;

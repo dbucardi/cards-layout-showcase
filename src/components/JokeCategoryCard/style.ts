@@ -3,9 +3,10 @@ import { IStyledInnerCardProps } from './interfaces';
 
 export const StyledJokeCategoryCard = styled.div`
   display: block;
-  width: 100%;
-  height: 500px;
+  width: 300px;
+  height: 450px;
   perspective: 1000px;
+  margin: 0 auto;
 `;
 
 export const StyledInnerCard = styled.div<IStyledInnerCardProps>`
@@ -21,7 +22,6 @@ export const StyledInnerCard = styled.div<IStyledInnerCardProps>`
 export const StyledCardBody = styled.div`
   padding: 30px;
   h3 {
-    color: var(--dark);
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -30,7 +30,7 @@ export const StyledCardBody = styled.div`
 
 export const StyledCardHeader = styled.div`
   position: relative;
-  padding: 30px 30px 40px;
+  padding: 15px 15px 20px;
   &:after {
     content: '';
     display: block;
@@ -48,6 +48,7 @@ export const StyledCardHeader = styled.div`
     font-size: 26px;
     font-weight: 900;
     text-align: center;
+    margin-top: 30px;
   }
 `;
 
@@ -59,7 +60,7 @@ const StyledCardFace = styled.div`
   backface-visibility: hidden;
   overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--card-box-shadow);
 `;
 
 export const StyledCardFront = styled(StyledCardFace)`
@@ -67,9 +68,22 @@ export const StyledCardFront = styled(StyledCardFace)`
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.8;
+  background-image: linear-gradient(135deg, var(--primary) 25%, transparent 25%),
+    linear-gradient(225deg, var(--primary) 25%, transparent 25%),
+    linear-gradient(45deg, var(--primary) 25%, transparent 25%),
+    linear-gradient(315deg, var(--primary) 25%, var(--secondary) 25%);
+  background-position: 10px 0, 10px 0, 0 0, 0 0;
+  background-size: 10px 10px;
+  background-repeat: repeat;
+
   h2 {
-    color: #fff;
+    color: black;
+    background: var(--secondary);
+    padding: 30px;
     font-size: 32px;
+    width: 100%;
+    text-align: center;
   }
 `;
 

@@ -5,13 +5,13 @@ import { useMouseOverDelay } from '../../hooks/useMouseOverDelay';
 
 export interface IJokeCardProps {
   joke: IJoke;
-  blurJoke?: boolean;
+  fadeoutJoke?: boolean;
   small?: boolean;
   onJokeSeen?: () => void;
 }
 
 export function JokeCard(props: IJokeCardProps) {
-  const { joke, blurJoke = true, small = false, onJokeSeen = () => {} } = props;
+  const { joke, fadeoutJoke = true, small = false, onJokeSeen = () => {} } = props;
   const { handleMouseEnter, handleMouseLeave } = useMouseOverDelay(onJokeSeen);
   const quoteSize = small ? 32 : 64;
 
@@ -19,7 +19,7 @@ export function JokeCard(props: IJokeCardProps) {
     <StyledJokeCard
       tabIndex={0}
       {...props}
-      blurJoke={blurJoke}
+      fadeoutJoke={fadeoutJoke}
       small={small}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

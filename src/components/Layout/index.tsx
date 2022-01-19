@@ -7,13 +7,15 @@ interface ILayoutProps {
 
 export function Layout({ children }: ILayoutProps) {
   return (
-    <Container>
-      <header>
-        <Logo />
-      </header>
-      <main>{children}</main>
-    </Container>
+    <MainContainer>
+      <Container>
+        <header>
+          <Logo />
+        </header>
+        <main>{children}</main>
+      </Container>
+    </MainContainer>
   );
 }
 
-export { Container, MainContainer };
+export { Container };

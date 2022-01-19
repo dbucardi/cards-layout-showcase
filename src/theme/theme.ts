@@ -2,13 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 export const ThemeStyles = createGlobalStyle`
   :root{
-    --primary: #a2bfb7;
-    --secondary: #adbf73;
+    --primary: #2F996D;
+    --secondary: #A9D1C0;
     --dark: #212121;
     --light: #f3f3f3;
-    --body-background: #FCD7AC;
+    --body-background: #F8F9FB;
     --high-contrast-text: rgb(40, 40, 40);
     --header-font-family: "Poppins", "sans-serif";
+    --card-box-shadow: 0 10px 20px rgb(30 48 52 / 13%);
 
     *::-webkit-scrollbar {
       width: 10px;

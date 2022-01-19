@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export function useMouseOverDelay(onComplete: () => void, delay = 2000) {
+export function useMouseOverDelay(onComplete: () => void, delay = 1000) {
   const timerRef = useRef<any>();
 
   useEffect(() => {
