@@ -4,8 +4,6 @@ import { CircleImage } from '../../../components/CircleImage';
 import { Spinner } from '../../../components/Spinner';
 import { useJokesState } from '../../../state/jokesState';
 import { JokeCard } from '../../../components/JokeCard';
-import { IJoke } from '../../../services/chuckNorris/interfaces';
-import { saveSeenJoke } from '../../../services/chuckNorris';
 import { HorizontalScroller } from '../../../components/HorizontalScroller';
 import { StyledSeenJokesHeader } from '../style';
 import chuckNorrisImg from '../../../assets/images/chuck-norris-card2.jpg';
@@ -15,19 +13,14 @@ const headerImage = <img alt="Chuck Norris holding a gun in combat" src={chuckNo
 const category = 'history';
 
 export function JokesByCategoryHistoryPage() {
-  const { jokes, seenJokes, loading, error, setSeenJokes } = useJokesState(category);
-
-  const handleJokeSeen = (seenJoke: IJoke) => () => {
-    const newSeenJokes = saveSeenJoke(seenJoke);
-    setSeenJokes(newSeenJokes);
-  };
+  const { jokes, seenJokes, loading, error } = useJokesState(category);
 
   const renderRandomJokesSection = () => (
     <section>
       <Row>
         {jokes.map((joke) => (
           <Col key={joke.id} sm={100} md={50} lg={33}>
-            <JokeCard joke={joke} onJokeSeen={handleJokeSeen(joke)} fadeoutJoke={false} />
+            <JokeCard joke={joke} fadeoutJoke={false} />
           </Col>
         ))}
       </Row>

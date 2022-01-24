@@ -4,8 +4,6 @@ import { CircleImage } from '../../../components/CircleImage';
 import { Spinner } from '../../../components/Spinner';
 import { useJokesState } from '../../../state/jokesState';
 import { JokeCard } from '../../../components/JokeCard';
-import { IJoke } from '../../../services/chuckNorris/interfaces';
-import { saveSeenJoke } from '../../../services/chuckNorris';
 import { HorizontalScroller } from '../../../components/HorizontalScroller';
 import { StyledSeenJokesHeader } from '../style';
 import { StyledGridContainer, StyledGridItem } from './style';
@@ -18,20 +16,15 @@ const headerImage = (
 const category = 'history';
 
 export function JokesByCategoryPoliticalPage() {
-  const { jokes, seenJokes, loading, error, setSeenJokes } = useJokesState(category);
-
-  const handleJokeSeen = (seenJoke: IJoke) => () => {
-    const newSeenJokes = saveSeenJoke(seenJoke);
-    setSeenJokes(newSeenJokes);
-  };
+  const { jokes, seenJokes, loading, error } = useJokesState(category);
 
   const renderRandomJokesSection = () => (
     <section>
       <h1>{category} jokes </h1>
       <StyledGridContainer>
-        {jokes.map((joke, index) => (
-          <StyledGridItem>
-            <JokeCard joke={joke} onJokeSeen={handleJokeSeen(joke)} fadeoutJoke={false} />
+        {jokes.map((joke) => (
+          <StyledGridItem key={joke.id}>
+            <JokeCard joke={joke} fadeoutJoke={false} />
           </StyledGridItem>
         ))}
       </StyledGridContainer>

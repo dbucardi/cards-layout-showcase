@@ -1,6 +1,6 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IJoke } from '../services/chuckNorris/interfaces';
-import { getFiveRandomJokes, getSeenJokes } from '../services/chuckNorris';
+import { getFiveRandomJokes, getSeenJokes, saveSeenJokes } from '../services/chuckNorris';
 
 export const useJokesState = (jokeCategory: string) => {
   const [jokes, setJokes] = useState<IJoke[]>([]);
@@ -8,11 +8,12 @@ export const useJokesState = (jokeCategory: string) => {
   const [seenJokes, setSeenJokes] = useState<IJoke[]>([]);
   const [error, setError] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setLoading(true);
     getFiveRandomJokes(jokeCategory)
-      .then((categoriesData) => {
-        setJokes(categoriesData);
+      .then((jokes) => {
+        setJokes(jokes);
+        saveSeenJokes(jokes);
       })
       .catch(() => setError(true))
       .finally(() => {

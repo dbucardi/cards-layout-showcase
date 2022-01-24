@@ -25,13 +25,8 @@ export function getSeenJokes(): IJoke[] {
   return seenJokes;
 }
 
-export function saveSeenJoke(joke: IJoke): IJoke[] {
+export function saveSeenJokes(jokes: IJoke[]) {
   const seenJokes = getSeenJokes();
-  const jokeAlreadyExists = seenJokes.some((currentJoke) => currentJoke.id === joke.id);
-  if (jokeAlreadyExists) {
-    return seenJokes;
-  }
-  const newSeenJokes: IJoke[] = [joke, ...seenJokes];
+  const newSeenJokes = [...jokes, ...seenJokes];
   sessionStorage.setItem(seenJokesStorageKey, JSON.stringify(newSeenJokes));
-  return newSeenJokes;
 }
