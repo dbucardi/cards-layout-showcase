@@ -1,7 +1,5 @@
 # About the application
 
-A joke is considered seen just when the user put the mouse over it for at least 1 second.
-
 The next steps should be:
 
 - Write unit tests for pages and components;
